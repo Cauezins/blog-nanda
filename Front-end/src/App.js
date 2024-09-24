@@ -1,18 +1,17 @@
-import NavBar  from './components/NavBar';
-import Carousel from './components/Carousel'
-import Pricing from './components/Pricing';
-import Footer from './components/Footer'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './views/HomePage';
+import LoginPage from './views/LoginPage';
+import NotFound from './views/NotFound';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <NavBar />
-        <Carousel/> 
-        <Pricing/> 
-        <Footer/>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/' element={<HomePage/>}/>
+        <Route path='/login' element={<LoginPage/>} />
+        <Route path='*' element={<NotFound/>}/>
+      </Routes>
+    </Router>
   );
 }
 
